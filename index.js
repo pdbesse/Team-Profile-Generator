@@ -71,17 +71,17 @@ function addEngineer() {
     inquirer.prompt([
         {
             name: "name",
-            message: "What is your manager's name?",
+            message: "What is your engineer's name?",
             type: "input"
         },
         {
             name: "id",
-            message: "What is your manager's ID number?",
+            message: "What is your engineer's ID number?",
             type: "input"
         },
         {
             name: "email",
-            message: "What is your manager's email address?",
+            message: "What is your engineer's email address?",
             type: "input"
         },
         {
@@ -102,17 +102,17 @@ function addIntern() {
     inquirer.prompt([
         {
             name: "name",
-            message: "What is your manager's name?",
+            message: "What is your intern's name?",
             type: "input"
         },
         {
             name: "id",
-            message: "What is your manager's ID number?",
+            message: "What is your intern's ID number?",
             type: "input"
         },
         {
             name: "email",
-            message: "What is your manager's email address?",
+            message: "What is your intern's email address?",
             type: "input"
         },
         {
