@@ -1,37 +1,40 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generatePage = require('./src/generatePage.js')
+const Employee = require('./lib/Employee.js')
+const Manager = require('./lib/Manager.js')
+const Engineer = require('./lib/Engineer.js')
+const Intern = require('./lib/Intern.js')
 
 function addManager() {
-        inquirer.prompt([
-            {
-                name: "name",
-                message: "What is your manager's name?",
-                type: "input"
-            },
-            {
-                name: "id",
-                message: "What is your manager's ID number?",
-                type: "input"
-            },
-            {
-                name: "email",
-                message: "What is your manager's email address?",
-                type: "input"
-            },
-            {
-                name: "officeNum",
-                message: "What is your manager's office number?",
-                type: "input"
-            }
-        ])
+    inquirer.prompt([
+        {
+            name: "name",
+            message: "What is your manager's name?",
+            type: "input"
+        },
+        {
+            name: "id",
+            message: "What is your manager's ID number?",
+            type: "input"
+        },
+        {
+            name: "email",
+            message: "What is your manager's email address?",
+            type: "input"
+        },
+        {
+            name: "officeNum",
+            message: "What is your manager's office number?",
+            type: "input"
+        }
+    ])
         .then(managerData => {
             // manager object?
             // push to empty array?
+            addEmployee();
         })
-
-        addEmployee();
-    }
+}
 
 
 function addEmployee() {
@@ -43,28 +46,28 @@ function addEmployee() {
             choices: ["yes", "no"]
         }
     ])
-    .then(response => {
-        if (response.empVal == "yes") {
-            inquirer.prompt([
-                {
-                    name: "roleVal",
-                    message: "Is the employee an Engineer or an Intern?",
-                    type: "rawlist",
-                    choices: ["Engineer", "Intern"]
-                }
-                ])
-                .then(response => {
-                    if (response.roleVal == "Engineer") {
-                        addEngineer()
-                    } else {
-                        addIntern()
+        .then(response => {
+            if (response.empVal == "yes") {
+                inquirer.prompt([
+                    {
+                        name: "roleVal",
+                        message: "Is the employee an Engineer or an Intern?",
+                        type: "rawlist",
+                        choices: ["Engineer", "Intern"]
                     }
-                })
-        } else {
-            return;
-        }
-        
-    })
+                ])
+                    .then(response => {
+                        if (response.roleVal == "Engineer") {
+                            addEngineer()
+                        } else {
+                            addIntern()
+                        }
+                    })
+            } else {
+                return;
+            }
+
+        })
 }
 
 function addEngineer() {
@@ -90,12 +93,11 @@ function addEngineer() {
             type: "input"
         }
     ])
-    .then(engineerData => {
-        // engineer object?
-        // push?
-    })
-
-    addEmployee();
+        .then(engineerData => {
+            // engineer object?
+            // push?
+            addEmployee();
+        })
 }
 
 function addIntern() {
@@ -121,19 +123,19 @@ function addIntern() {
             type: "input"
         }
     ])
-    .then(internData => {
-        // engineer object?
-        // push?
-    })
-    
-    addEmployee();
+        .then(internData => {
+            // engineer object?
+            // push?
+
+            addEmployee();
+        })
 }
 
 function writeToFile() {
 
 }
 
-init(addManager());
+addManager();
 
 // require inquirer and fs
 // 

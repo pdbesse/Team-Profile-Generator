@@ -1,23 +1,28 @@
 const Manager = require("../lib/Manager.js");
 
-describe("Manager", () => {
-    it("", () => {
+describe("", () => {
+    describe("", () => {
+        it("", () => {
 
-        expect;
+        expect();
+        })
     });
+    describe("", () => {
+        it("", () => {
 
-    it("", () => {
-
-        expect;
+        expect();
+        })
     });
+    describe("", () => {
+        it("", () => {
 
-    it("", () => {
+        expect();
+        })
+    });
+    describe("", () => {
+        it("", () => {
 
-        expect;
-    })
-
-    it("", () => {
-
-        expect;
+        expect();
+        })
     });
 })
