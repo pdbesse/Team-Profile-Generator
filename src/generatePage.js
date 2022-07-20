@@ -3,7 +3,7 @@
 // generatePage() to insert created m/e/i cards into rest of HTML?
 // insert generated cards into array, insert array via template literal?
 
-function renderManager() {
+function renderManager(manager) {
     return `<div class="container col">
     <!-- card -->
     <div class="card">
@@ -25,7 +25,7 @@ function renderManager() {
 `
 }
 
-function renderEngineer() {
+function renderEngineer(engineer) {
     return `<div class="container col">
     <!-- card -->
     <div class="card">
@@ -47,7 +47,7 @@ function renderEngineer() {
 `
 }
 
-function renderIntern() {
+function renderIntern(intern) {
     return `<div class="container col">
     <!-- card -->
     <div class="card">
@@ -69,10 +69,10 @@ function renderIntern() {
 `
 }
 
-function generatePage(teaminfo) {
-    renderManager();
-    renderEngineer();
-    renderIntern();
+function generatePage() {
+    renderManager(manager);
+    renderEngineer(engineer);
+    renderIntern(intern);
 }
 
 module.exports = generatePage;
