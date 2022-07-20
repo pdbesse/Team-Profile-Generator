@@ -69,8 +69,10 @@ function renderIntern() {
 `
 }
 
-function generatePage(response) {
-    
+function generatePage(teaminfo) {
+    renderManager();
+    renderEngineer();
+    renderIntern();
 }
 
 module.exports = generatePage;
