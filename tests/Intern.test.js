@@ -1,23 +1,28 @@
 const Intern = require("../lib/Intern.js");
 
 describe("Intern", () => {
-    it("", () => {
+    describe("", () => {
+        it("", () => {
 
-        expect;
+        expect();
+        })
     });
+    describe("", () => {
+        it("", () => {
 
-    it("", () => {
-
-        expect;
+        expect();
+        })
     });
+    describe("", () => {
+        it("", () => {
 
-    it("", () => {
+        expect();
+        })
+    });
+    describe("", () => {
+        it("", () => {
 
-        expect;
-    })
-
-    it("", () => {
-
-        expect;
+        expect();
+        })
     });
 })
