@@ -34,7 +34,7 @@ function addManager() {
         .then(managerData => {
             // manager object?
             // push to empty array?
-
+            const {name, id, email, officeNum} = managerData;
             const manager = new Manager(name, id, email, officeNum);
             console.log(manager);
 
@@ -71,7 +71,7 @@ function addEmployee() {
                         }
                     })
             } else {
-                return;
+                writeToFile('dist/teampage.HTML', teamArr);
             }
 
         })
@@ -103,7 +103,7 @@ function addEngineer() {
         .then(engineerData => {
             // engineer object?
             // push?
-
+            const {name, id, email, github} = engineerData;
             const engineer = new Engineer(name, id, email, github);
             console.log(engineer);
 
@@ -139,7 +139,7 @@ function addIntern() {
         .then(internData => {
             // engineer object?
             // push?
-
+            const {name, id, email, school} = internData;
             const intern = new Intern(name, id, email, school);
             console.log(intern);
 
@@ -150,8 +150,8 @@ function addIntern() {
         })
 }
 
-function writeToFile() {
-
+function writeToFile(fileName, data) {
+fs.writeFile(fileName, generatePage(data), (err) => err ? console.error(err) : console.log('Team Page generated!'));
 }
 
 addManager();
