@@ -10,7 +10,7 @@ describe("Manager", () => {
             expect(manObj.officeNum).toEqual(808);
         })
     });
-    describe("getOfficeNum", () => {
+    describe("getOfficeNum()", () => {
         it("should return the office number", () => {
             const manObj = new Manager('Phil', 54, 'email@email.com', 808)
             expect(manObj.getOfficeNum()).toEqual(808);
