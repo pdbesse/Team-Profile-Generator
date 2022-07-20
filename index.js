@@ -6,6 +6,8 @@ const Manager = require('./lib/Manager.js')
 const Engineer = require('./lib/Engineer.js')
 const Intern = require('./lib/Intern.js')
 
+var teamArr = [];
+
 function addManager() {
     inquirer.prompt([
         {
@@ -32,6 +34,11 @@ function addManager() {
         .then(managerData => {
             // manager object?
             // push to empty array?
+
+            const manager = new Manager(name, id, email, officeNum);
+            console.log(manager);
+
+            teamArr.push(manager);
             addEmployee();
         })
 }
@@ -96,6 +103,12 @@ function addEngineer() {
         .then(engineerData => {
             // engineer object?
             // push?
+
+            const engineer = new Engineer(name, id, email, github);
+            console.log(engineer);
+
+            teamArr.push(engineer);
+
             addEmployee();
         })
 }
@@ -126,6 +139,12 @@ function addIntern() {
         .then(internData => {
             // engineer object?
             // push?
+
+            const intern = new Intern(name, id, email, school);
+            console.log(intern);
+
+            teamArr.push(intern);
+            
 
             addEmployee();
         })
