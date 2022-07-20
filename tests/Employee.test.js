@@ -1,3 +1,5 @@
+const Employee = require("../lib/Employee.js");
+
 describe("Employee", () => {
     it("", () => {
 
