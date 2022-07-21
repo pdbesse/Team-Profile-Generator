@@ -3,7 +3,9 @@
 // generatePage() to insert created m/e/i cards into rest of HTML?
 // insert generated cards into array, insert array via template literal?
 
+// function to render manager card; returns template literal string
 function renderManager(manager) {
+    // function populates string with data from manager.name, manager.id, manager.email, and manager.officeNum
     return `
 <div class="container col">
     <!-- card -->
@@ -26,7 +28,9 @@ function renderManager(manager) {
 `
 }
 
+// function to render engineer card; returns template literal string
 function renderEngineer(engineer) {
+    // function populates string with data from engineer.name, engineer.id, engineer.email, and engineer.github
     return `
 <div class="container col">
     <!-- card -->
@@ -49,7 +53,9 @@ function renderEngineer(engineer) {
 `
 }
 
+// function to render intern card; returns template literal string
 function renderIntern(intern) {
+    // function populates string with data from intern.name, intern.id, intern.email, and intern.school
     return `
 <div class="container col">
     <!-- card -->
@@ -72,24 +78,37 @@ function renderIntern(intern) {
 `
 }
 
+// function to generate and return all generated cards as a string
 function generateTeam(teamArr) {
+    // empty string to hold generated card strings
     var renderSTR = ''
+    // for loop to iterate through teamArr
     for (let i = 0; i < teamArr.length; i++) {
+        // create variable for each iteration index
         const employee = teamArr[i];
+        // create variable for getRole() result
         const role = employee.getRole();
-
+        // if getRole() result is 'Manager'
         if (role === 'Manager') {
+            // variable holds string from renderManager()
             let tempMan = renderManager(employee);
+            // add string from renderManager() to card string
             renderSTR = renderSTR + tempMan;
             // console.log(renderManager(employee));
         }
+        // if getRole() result is 'Engineer'
         if (role === 'Engineer') {
+            // variable holds string from renderEngineer()
             let tempEng = renderEngineer(employee);
+            // add string from renderEngineer() to card string
             renderSTR = renderSTR + tempEng;
             // console.log(renderEngineer(employee));
         }
+        // if getRole() result is 'Intern'
         if (role === 'Intern') {
+            // variable holds string from renderIntern()
             let tempInt = renderIntern(employee);
+            // add string from renderIntern() to card string
             renderSTR = renderSTR + tempInt;
             // console.log(renderIntern(employee));
         }
@@ -101,10 +120,13 @@ function generateTeam(teamArr) {
         // renderEngineer();
         // renderIntern();
     }
+    // return the string holding all generated cards
     return renderSTR;
 }
 
+// function to return the teampage.HTML string
 function generatePage(teamArr) {
+    // string containing all generated cards is inserted into .html template literal string via generateTeam()
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -149,4 +171,5 @@ function generatePage(teamArr) {
 `
 }
 
+// enables generatePage.js to be exported
 module.exports = generatePage;
