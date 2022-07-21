@@ -151,7 +151,8 @@ function addIntern() {
 }
 
 function writeToFile(fileName, data) {
-fs.writeFile(fileName, generatePage(data), (err) => err ? console.error(err) : console.log('Team Page generated!'));
+// fs.writeFile(fileName, generatePage(data), (err) => err ? console.error(err) : console.log('Team Page generated!'));
+    generatePage(data);
 }
 
 addManager();
