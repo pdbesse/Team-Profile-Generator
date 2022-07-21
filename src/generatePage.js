@@ -4,7 +4,8 @@
 // insert generated cards into array, insert array via template literal?
 
 function renderManager(manager) {
-    return `<div class="container col">
+    return `
+<div class="container col">
     <!-- card -->
     <div class="card">
         <!-- card body -->
@@ -12,7 +13,7 @@ function renderManager(manager) {
             <!-- Name -->
             <h3 class="card-title text-center">${manager.name}</h3>
             <!-- ID Number -->
-            <h5 class="card-title">${manager.role}</h5>
+            <h5 class="card-title">Manager</h5>
             <!-- ID Number -->
             <p class="card-text">ID Number: ${manager.id}</p>
             <!-- Email -->
@@ -26,7 +27,8 @@ function renderManager(manager) {
 }
 
 function renderEngineer(engineer) {
-    return `<div class="container col">
+    return `
+<div class="container col">
     <!-- card -->
     <div class="card">
         <!-- card body -->
@@ -34,7 +36,7 @@ function renderEngineer(engineer) {
             <!-- Name -->
             <h3 class="card-title text-center">${engineer.name}</h3>
             <!-- ID Number -->
-            <h5 class="card-title">${engineer.role}</h5>
+            <h5 class="card-title">Engineer</h5>
             <!-- ID Number -->
             <p class="card-text">ID Number: ${engineer.id}</p>
             <!-- Email -->
@@ -48,7 +50,8 @@ function renderEngineer(engineer) {
 }
 
 function renderIntern(intern) {
-    return `<div class="container col">
+    return `
+<div class="container col">
     <!-- card -->
     <div class="card">
         <!-- card body -->
@@ -56,7 +59,7 @@ function renderIntern(intern) {
             <!-- Name -->
             <h3 class="card-title text-center">${intern.name}</h3>
             <!-- ID Number -->
-            <h5 class="card-title">${intern.role}</h5>
+            <h5 class="card-title">Intern</h5>
             <!-- ID Number -->
             <p class="card-text">ID Number: ${intern.id}</p>
             <!-- Email -->
@@ -69,39 +72,41 @@ function renderIntern(intern) {
 `
 }
 
-function generatePage(teamArr) {
-    // console.log(data)
-    // need for loop to go through data array and isolate each role
-    // then execute render function for each role
-
-    for (i = 0; i < teamArr.length; i++) {
+function generateTeam(teamArr) {
+    var renderSTR = ''
+    for (let i = 0; i < teamArr.length; i++) {
         const employee = teamArr[i];
         const role = employee.getRole();
 
         if (role === 'Manager') {
-            renderManager(employee);
+            let tempMan = renderManager(employee);
+            renderSTR = renderSTR + tempMan;
             // console.log(renderManager(employee));
-        } else if (role === 'Engineer') {
-            renderEngineer(employee);
-            // console.log(renderEngineer(employee));
-        } else if (role === 'Intern') {
-            renderIntern(employee);
-            // console.log(renderIntern(employee));
-        } else {
-            return;
         }
-    
-    // let man = data.filter(employee => employee.getRole() === "Manager") 
-    // console.log(man);
-    
-    // let mancard = renderManager(man);
-    // console.log(mancard);
-    // renderEngineer();
-    // renderIntern();
+        if (role === 'Engineer') {
+            let tempEng = renderEngineer(employee);
+            renderSTR = renderSTR + tempEng;
+            // console.log(renderEngineer(employee));
+        }
+        if (role === 'Intern') {
+            let tempInt = renderIntern(employee);
+            renderSTR = renderSTR + tempInt;
+            // console.log(renderIntern(employee));
+        }
+        // let man = data.filter(employee => employee.getRole() === "Manager") 
+        // console.log(man);
 
+        // let mancard = renderManager(man);
+        // console.log(mancard);
+        // renderEngineer();
+        // renderIntern();
     }
+    return renderSTR;
+}
+
+function generatePage(teamArr) {
     return `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -134,15 +139,14 @@ function generatePage(teamArr) {
     <main>
         <!-- container div -->
         <div class="row">
-
+            ${generateTeam(teamArr)}
         </div>
     </main>
 
 </body>
 
-</html>`
-
-.then(console.log(generatePage(teamArr)));
+</html>
+`
 }
 
 module.exports = generatePage;
