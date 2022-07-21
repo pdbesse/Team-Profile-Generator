@@ -10,7 +10,7 @@ function renderManager(manager) {
         <!-- card body -->
         <div class="card-body">
             <!-- Name -->
-            <h3 class="card-title text-center">${manager[0].name}</h3>
+            <h3 class="card-title text-center">${manager.name}</h3>
             <!-- ID Number -->
             <h5 class="card-title">${manager.role}</h5>
             <!-- ID Number -->
@@ -69,17 +69,37 @@ function renderIntern(intern) {
 `
 }
 
-function generatePage(data) {
-    console.log(data)
+function generatePage(teamArr) {
+    // console.log(data)
+    // need for loop to go through data array and isolate each role
+    // then execute render function for each role
 
-    let man = data.filter(employee => employee.getRole() === "Manager") 
-    console.log(man);
+    for (i = 0; i < teamArr.length; i++) {
+        const employee = teamArr[i];
+        const role = employee.getRole();
+
+        if (role === 'Manager') {
+            renderManager(employee);
+            // console.log(renderManager(employee));
+        } else if (role === 'Engineer') {
+            renderEngineer(employee);
+            // console.log(renderEngineer(employee));
+        } else if (role === 'Intern') {
+            renderIntern(employee);
+            // console.log(renderIntern(employee));
+        } else {
+            return;
+        }
     
-    let mancard = renderManager(man);
-    console.log(mancard);
+    // let man = data.filter(employee => employee.getRole() === "Manager") 
+    // console.log(man);
+    
+    // let mancard = renderManager(man);
+    // console.log(mancard);
     // renderEngineer();
     // renderIntern();
 
+    }
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -112,10 +132,17 @@ function generatePage(data) {
     </header>
 
     <main>
+        <!-- container div -->
+        <div class="row">
+
+        </div>
     </main>
+
 </body>
 
 </html>`
+
+.then(console.log(generatePage(teamArr)));
 }
 
 module.exports = generatePage;
