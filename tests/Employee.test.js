@@ -31,7 +31,7 @@ describe("Employee", () => {
         })
     });
     // test to determine if email is returned
-    describe("Email()", () => {
+    describe("getEmail()", () => {
         it("should return the email", () => {
             const employee = new Employee('Phil', 55, 'test@email.com');
             // getEmail() result expectation

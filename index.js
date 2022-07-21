@@ -41,6 +41,7 @@ function addManager() {
         }
     ])
         .then(managerData => {
+            // assign value to keys in the object
             const { name, id, email, officeNum } = managerData;
             // creates new Manager object
             const manager = new Manager(name, id, email, officeNum);
@@ -115,6 +116,7 @@ function addEngineer() {
         }
     ])
         .then(engineerData => {
+            // assign values to keys in object
             const { name, id, email, github } = engineerData;
             // creates new Engineer object
             const engineer = new Engineer(name, id, email, github);
@@ -150,6 +152,7 @@ function addIntern() {
         }
     ])
         .then(internData => {
+            // assign values to keys in object
             const { name, id, email, school } = internData;
             // creates new Intern object
             const intern = new Intern(name, id, email, school);
