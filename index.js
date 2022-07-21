@@ -1,13 +1,22 @@
+// require Inquirer
 const inquirer = require('inquirer');
+// require fs
 const fs = require('fs');
+// require generatePage.js
 const generatePage = require('./src/generatePage.js')
+// require Employee class
 const Employee = require('./lib/Employee.js')
+// require Manager class
 const Manager = require('./lib/Manager.js')
+// require Engineer class
 const Engineer = require('./lib/Engineer.js')
+// require Intern class
 const Intern = require('./lib/Intern.js')
 
+// empty array to hold created objects
 var teamArr = [];
 
+// function initiates app; collects manager data
 function addManager() {
     inquirer.prompt([
         {
@@ -32,19 +41,19 @@ function addManager() {
         }
     ])
         .then(managerData => {
-            // manager object?
-            // push to empty array?
-            const {name, id, email, officeNum} = managerData;
+            const { name, id, email, officeNum } = managerData;
+            // creates new Manager object
             const manager = new Manager(name, id, email, officeNum);
-            // console.log(manager);
-
+            // push created object to array
             teamArr.push(manager);
+            // initiates addEmployee()
             addEmployee();
         })
 }
 
-
+// function to determine employee type
 function addEmployee() {
+    // prompt to enter another employee
     inquirer.prompt([
         {
             name: "empVal",
@@ -54,6 +63,7 @@ function addEmployee() {
         }
     ])
         .then(response => {
+            // if response is yes, choose engineer or intern
             if (response.empVal == "yes") {
                 inquirer.prompt([
                     {
@@ -64,12 +74,15 @@ function addEmployee() {
                     }
                 ])
                     .then(response => {
+                        // if user chooses engineer, run addEngineer()
                         if (response.roleVal == "Engineer") {
                             addEngineer()
+                            // else run addIntern()
                         } else {
                             addIntern()
                         }
                     })
+                // if user chooses not to add another employee, write teampage.HTML with team array data
             } else {
                 writeToFile('dist/teampage.HTML', teamArr);
             }
@@ -77,6 +90,7 @@ function addEmployee() {
         })
 }
 
+// function to add engineer
 function addEngineer() {
     inquirer.prompt([
         {
@@ -101,18 +115,17 @@ function addEngineer() {
         }
     ])
         .then(engineerData => {
-            // engineer object?
-            // push?
-            const {name, id, email, github} = engineerData;
+            const { name, id, email, github } = engineerData;
+            // creates new Engineer object
             const engineer = new Engineer(name, id, email, github);
-            // console.log(engineer);
-
+            // push created object to array
             teamArr.push(engineer);
-
+            // run addEmployee() to determine what to do next
             addEmployee();
         })
 }
 
+// function to add intern
 function addIntern() {
     inquirer.prompt([
         {
@@ -137,24 +150,23 @@ function addIntern() {
         }
     ])
         .then(internData => {
-            // engineer object?
-            // push?
-            const {name, id, email, school} = internData;
+            const { name, id, email, school } = internData;
+            // creates new Intern object
             const intern = new Intern(name, id, email, school);
-            // console.log(intern);
-
+            // push created object to array
             teamArr.push(intern);
-            
-
+            //run addEmployee() to determine what to do next
             addEmployee();
         })
 }
 
+// defines writeToFile()
 function writeToFile(fileName, data) {
+    // write file with data from generatePage
     fs.writeFile(fileName, generatePage(data), (err) => err ? console.error(err) : console.log('Team Page generated!'));
-    // generatePage(data);
 }
 
+// initiate the app
 addManager();
 
 // require inquirer and fs
