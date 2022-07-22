@@ -38,13 +38,13 @@ This will launch the program.
 
 ## Usage
 
-![usage-gif]()
+![usage-gif](./assets/team-pro-gen.gif)
 
 Upon running the index.js file in node, the user is prompted to enter the team manager's name, ID number, email, and office number. The user then selects if they would like to add another employee. If yes, the user is prompted to choose between an engineer or an intern. If no, the teampage.html file is written.
 
 For an engineer, the user is prompted to enter the name, ID number, email, and GitHub profile. For an intern, the user is prompted to enter the name, ID number, email, and school.
 
-You may view a video of the application being used [here]().
+You may view a video of the application being used [here](https://youtu.be/dpFOFy7w-Hk).
 
 ---
 

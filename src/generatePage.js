@@ -1,8 +1,3 @@
-// need functions to generate HTML cards for manager, engineer, intern?
-// generatePage() has rest of HTML defined in it
-// generatePage() to insert created m/e/i cards into rest of HTML?
-// insert generated cards into array, insert array via template literal?
-
 // function to render manager card; returns template literal string
 function renderManager(manager) {
     // function populates string with data from manager.name, manager.id, manager.email, and manager.officeNum
