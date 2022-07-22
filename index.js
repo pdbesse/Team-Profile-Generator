@@ -171,19 +171,3 @@ function writeToFile(fileName, data) {
 
 // initiate the app
 addManager();
-
-// require inquirer and fs
-// 
-// addManager()
-// 
-// addEmployee()
-    // choice between Engineer and Intern
-    // if == 'Engineer', addEngineer()
-    // if == 'Intern', addIntern()
-    // at end of addEngineer() and addIntern()
-        // add another employee
-            // if yes, addEmployee()
-            // if no, return
-    // push created employee objects to array?
-// 
-// fs.writeFile to '/dist/employeepage.html'
