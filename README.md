@@ -20,7 +20,7 @@ This app is a node.js program designed to write a team profile .html page from v
 
 ## Installation
 
-The files for this program can be downloaded [here]https://github.com/pdbesse/Team-Profile-Generator/archive/refs/heads/main.zip). 
+The files for this program can be downloaded [here](https://github.com/pdbesse/Team-Profile-Generator/archive/refs/heads/main.zip). 
 
 This app requires node.js to be installed. For download and installation instructions, please see [nodejs.org](https://nodejs.org/en/download/).
 
