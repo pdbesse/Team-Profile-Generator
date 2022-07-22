@@ -9,17 +9,17 @@ function renderManager(manager) {
     return `
 <div class="container col">
     <!-- card -->
-    <div class="card">
+    <div class="card m-2">
         <!-- card body -->
         <div class="card-body">
             <!-- Name -->
             <h3 class="card-title text-center">${manager.name}</h3>
             <!-- ID Number -->
-            <h5 class="card-title">Manager</h5>
+            <p class="card-text">Manager</p>
             <!-- ID Number -->
             <p class="card-text">ID Number: ${manager.id}</p>
             <!-- Email -->
-            <p class="card-text">Email: ${manager.email}</p>
+            <p class="card-text"><a href="mailto:${manager.email}">Email</a></p>
             <!-- Office Number -->
             <p class="card-text">Office Number: ${manager.officeNum}</p>
         </div>
@@ -32,21 +32,21 @@ function renderManager(manager) {
 function renderEngineer(engineer) {
     // function populates string with data from engineer.name, engineer.id, engineer.email, and engineer.github
     return `
-<div class="container col">
+    <div class="container col">
     <!-- card -->
-    <div class="card">
+    <div class="card m-2">
         <!-- card body -->
         <div class="card-body">
             <!-- Name -->
             <h3 class="card-title text-center">${engineer.name}</h3>
             <!-- ID Number -->
-            <h5 class="card-title">Engineer</h5>
+            <p class="card-text">Engineer</p>
             <!-- ID Number -->
             <p class="card-text">ID Number: ${engineer.id}</p>
             <!-- Email -->
-            <p class="card-text">Email: ${engineer.email}</p>
+            <p class="card-text"><a href="mailto:${engineer.email}">Email</a></p>
             <!-- Office Number -->
-            <p class="card-text">GitHub Profile: www.github.com/${engineer.github}</p>
+            <p class="card-text"><a href="https://www.github.com/${engineer.github}" target="_blank">GitHub Profile</a></p>
         </div>
     </div>
 </div>
@@ -59,17 +59,17 @@ function renderIntern(intern) {
     return `
 <div class="container col">
     <!-- card -->
-    <div class="card">
+    <div class="card m-2">
         <!-- card body -->
         <div class="card-body">
             <!-- Name -->
             <h3 class="card-title text-center">${intern.name}</h3>
             <!-- ID Number -->
-            <h5 class="card-title">Intern</h5>
+            <p class="card-text">Intern</p>
             <!-- ID Number -->
             <p class="card-text">ID Number: ${intern.id}</p>
             <!-- Email -->
-            <p class="card-text">Email: ${intern.email}</p>
+            <p class="card-text"><a href="mailto:${intern.email}">Email</a></p>
             <!-- Office Number -->
             <p class="card-text">School: ${intern.school}</p>
         </div>
